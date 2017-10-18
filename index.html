@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- new comments  -->
 <html lang="en">
     <head>
         <title>In4mer</title>
@@ -143,6 +142,7 @@
             .navbar li a, .navbar .navbar-brand {
                 color: #fff !important;
             }
+
             .navbar-nav li a:hover, .navbar-nav li.active a {
                 color: #2a3f54 !important;
                 background-color: #fff !important;
@@ -150,6 +150,8 @@
             .navbar-default .navbar-toggle {
                 border-color: transparent;
                 color: #fff !important;
+                margin-top: 0px;
+                margin-bottom: 0px;
             }
 
             footer .glyphicon {
@@ -228,14 +230,14 @@
             }
 
             .vertical-align { 
-                display: flex;
-                align-items: center;
+                /*                this is to ensure vertical alignment of the icons and text*/
+                /*                display: flex;*/
+                /*                align-items: center;*/
             }
 
             .modal {
                 text-align: center;
             }
-
 
             .modal:before {
                 display: inline-block;
@@ -251,13 +253,30 @@
             }
 
 
+            modal-header {
+                background-color: #2a3f54;
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit
+            }
+
+            .modal-body { 
+                padding-bottom: 0px
+            }
+
+            .modal-footer {
+                padding-top: 0px;
+                border-color: white;
+
+            }
+
+
         </style>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header" style="border-color: #2a3f54">
                     <i class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="fa fa-bars" style="color: white; font-size: 30px"></span>                    
                     </i>
@@ -265,7 +284,7 @@
                         In4mer
                     </a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse" id="myNavbar" style="border: 0px">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#about">ABOUT</a></li>
                         <!--        <li><a href="#services">SERVICES</a></li>-->
@@ -303,7 +322,7 @@
             </div>
         </div>
 
-        <div id="theapp" class="container-fluid">
+        <div id="theapp" class="container-fluid bg-grey">
             <div class="row vertical-align">
                 <div class="col-sm-4 text-center">
                     <img class= "slideanim" src="images/app.gif" style="width: 200px; height: auto" >
@@ -319,7 +338,7 @@
 
 
 
-        <div class="container-fluid bg-grey">
+        <div class="container-fluid">
             <div class="row vertical-align">
                 <div class="col-sm-8">
                     <h2>IoT Connectivity</h2><br>
@@ -334,17 +353,18 @@
         </div>
 
 
-        <div id="about" class="container-fluid">
+        <div id="dashboard" class="container-fluid bg-grey">
             <div class="row vertical-align">
+                <div class="col-sm-4 text-center">
+                    <span class="glyphicon glyphicon-dashboard logo slideanim" style="color: #2a3f54"></span>
+<!--                    <span class="glyphicon glyphicon-dashboard logo slideanime" style="color: #2a3f54"></span>-->
+                </div>
                 <div class="col-sm-8">
                     <h2>THE ONLINE DASHBOARD</h2><br>
                     <h4>The In4mer also provides an online dashboard where one can communicate with employees, clients and keep track of your IoT devices.<br><br> This dashboard can also be used to customize the theme of the app to fit the style of your business.</h4><br>
                     <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <span class="glyphicon glyphicon-dashboard logo slideanime" style="color: #2a3f54"></span>
-                </div>
+                </div>            
             </div>
         </div>
 
@@ -420,44 +440,52 @@ The In4mer app makes use of customisable mini apps that can be taylored to the c
             <div class="modal-dialog">
 
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" style="background-color: #2a3f54; border-top-left-radius: inherit; border-top-right-radius: inherit">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </button>
-
-                        <h4 class="modal-title">Login Form</h4>
+                        <h4 class="modal-title" style="color: white; letter-spacing: 4px;">Sign In</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                                <!--                                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>-->
+                                <div class="form-group-lg">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="fa fa-user"></span> 
+                                        </div>
+                                        <input class="form-control" id="username" name="username" placeholder="Username" type="username" required>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <input class="form-control" id="pwd" name="pwd" placeholder="Password" type="pwd" required>
+                                <div class="form-group-lg">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="fa fa-lock"></span> 
+                                        </div>
+                                        <input class="form-control" id="pwd" name="pwd" placeholder="Password" type="password" required>
+                                    </div>
+                                </div>                        
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer" >
-                        <button type="button" class="btn btn-default" data-dismiss="modal" style="margin: 5px">Cancel</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin: 5px" onclick="api.login();">Sign In</button>
+
+
+                    <div class="modal-footer">    
+                        <button type="button" class="btn btn-lg btn-success mr-auto" data-dismiss="modal" style="margin: 5px;" onclick="api.login();">Sign In</button>
+                        <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal" style="margin: 5px;">Cancel</button>
                     </div>
 
                 </div>
 
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
 
         <!-- Container (Contact Section) -->
         <div id="contact" class="container-fluid bg-grey">
@@ -530,7 +558,7 @@ The In4mer app makes use of customisable mini apps that can be taylored to the c
                         var pos = $(this).offset().top;
 
                         var winTop = $(window).scrollTop();
-                        if (pos < winTop + 600) {
+                        if (pos < winTop + $(window).height()) {
                             $(this).addClass("slide");
                         }
                     });
