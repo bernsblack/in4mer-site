@@ -140,19 +140,6 @@
                 margin-bottom: 0px;
             }
 
-            /*
-            .row {
-            display: table;
-            }
-
-            [class*="col-"] {
-            float: none;
-            display: table-cell;
-            vertical-align: top;
-            }
-            */
-
-
             .slideanim {visibility:hidden;}
             .slide {
                 animation-name: slide;
@@ -198,11 +185,20 @@
                     font-size: 150px;   
                 }
             }
+            
+            /* Extra small devices (767px and down) */
+            @media (max-width: 767px) {
+                .row.vertical-align {
+                    display: block; /* Turn off the flexible box layout */
+                }
+            }
 
-            .vertical-align { 
-                /*                this is to ensure vertical alignment of the icons and text*/
-                /*                display: flex;*/
-                /*                align-items: center;*/
+            /* Small devices (tablets, 768px and up) */
+            @media (min-width: 768px) {
+                .row.vertical-align {
+                    display: flex;
+                    align-items: center;
+                }
             }
 
             .modal {
@@ -270,7 +266,7 @@
 
         <!-- Container (About Section) -->
         <div class="jumbotron text-center">
-            <img src="images/in4mer_white.png" style="width: 200px; height: auto" >
+            <img src="images/in4mer_white.png" style="width: 200px; height: auto" onclick="takemeaway()">
             <h1>In4mer</h1> 
             <h3 style="color: white"><em>a networking platform for <strong>your</strong> business</em></h3>
 
@@ -281,9 +277,7 @@
             <div class="row vertical-align">
                 <div class="col-sm-8">
                     <h2>About</h2><br>
-                    <h4>The In4mer is a business networking platform which uses push notifications to notify users on business related topics.</h4><p> The In4mer app comes with customizable mini apps which can be developed for your busnisses's needs. The app is  used as a context based messaging platform where issues can be resolved in a quick and organised fasion.</p>
-
-                    
+                    <h4>The In4mer is a business networking platform which uses push notifications to notify users on business related topics.</h4><p> The app is used as a context based messaging platform where issues can be resolved in a quick and organised fasion. The in4mer can also be used to connect to many of Accitrack's IoT devices.</p>
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="fa fa-comments-o logo slideanime" style="color: #2a3f54"></span>
@@ -296,11 +290,12 @@
                 <div class="col-sm-4 text-center">
                     <a  href="https://play.google.com/store/apps/details?id=com.informer.messenger"><img class= "slideanim" src="images/app.gif" style="width: 200px; height: auto" ></a>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8" id="app_discription">
                     <h2>THE APP</h2><br>
-                    <h4>The In4mer is a highly customizable app which can fit your business's specific needs. The app is made of a variety of circles (mini apps) which can be taylored for any use case, e.g. geo-tracking, QR code scanning, panic buttons and many more.</h4><br>
-                    <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h4>The In4mer is a highly customizable app which can fit your business's specific needs. The app is made of a variety of circles (mini apps) which can be taylored for any use case, e.g. geo-tracking, QR code scanning, panic buttons and many more.</h4>
+                    <p><strong>IN THE WORKS:</strong> We are currently working on a Javascript interpreter which developers can use to add functionality to their mini apps.</p>
+                    
+                    <a href="https://play.google.com/store/apps/details?id=com.informer.messenger" class="site_title"><img src="images/google-play-badge.png" style="width: 200px; height: auto" ></a>
                 </div>
             </div>
         </div>
@@ -312,8 +307,6 @@
                 <div class="col-sm-8">
                     <h2>IoT Connectivity</h2><br>
                     <h4>The In4mer can be connected with a multitude of IoT devices which can send push notifications straight to your mobile. </h4><br>
-                    <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 <div class="col-sm-4 text-center">
                     <span class="glyphicon glyphicon-map-marker logo slideanim" style="color: red"></span>
@@ -331,8 +324,10 @@
                 <div class="col-sm-8">
                     <h2>THE ONLINE DASHBOARD</h2><br>
                     <h4>The In4mer provides an online dashboard where one can communicate with employees, clients and keep track of your IoT devices.<br><br> This dashboard is used to customize the theme of the app to fit the style of your business.</h4><br>
+<!--
                     <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+-->
                 </div>            
             </div>
         </div>
@@ -438,7 +433,7 @@ The In4mer app makes use of customisable mini apps that can be taylored to the c
                                         <div class="input-group-addon">
                                             <span class="fa fa-lock"></span> 
                                         </div>
-                                        <input class="form-control" id="pwd" name="pwd" placeholder="Password" type="password" required>
+                                        <input class="form-control" id="password" name="pwd" placeholder="Password" type="password" required>
                                     </div>
                                 </div>                        
                             </div>
@@ -447,7 +442,7 @@ The In4mer app makes use of customisable mini apps that can be taylored to the c
 
 
                     <div class="modal-footer">    
-                        <button type="button" class="btn btn-lg btn-success mr-auto" data-dismiss="modal" style="margin: 5px;" onclick="api.login();">Sign In</button>
+                        <button type="button" class="btn btn-lg btn-success mr-auto" data-dismiss="modal" style="margin: 5px;" onclick="takemeaway()">Sign In</button>
                         <button type="button" class="btn btn-lg btn-danger" data-dismiss="modal" style="margin: 5px;">Cancel</button>
                     </div>
 
@@ -499,7 +494,11 @@ The In4mer app makes use of customisable mini apps that can be taylored to the c
 
 
         <script>
-            $(document).ready(function(){
+            function takemeaway() {
+                window.location.href = 'https://fonts.google.com';
+            }
+            
+            $(document).ready(function(){                
                 // Add smooth scrolling to all links in navbar + footer link
                 $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
                     // Make sure this.hash has a value before overriding default behavior
